@@ -1,29 +1,27 @@
 specVersion: 0.0.4
-description: PancakeSwap is a decentralized protocol for automated token exchange on Binance Smart Chain.
+description: PancakeSwap is a decentralized protocol for automated token exchange on
+  Binance Smart Chain.
 repository: https://github.com/pancakeswap/pancakeswap-v2-subgraph
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: Factory
     network: chapel
     source:
-      address: '0x2c7974bade5adac329f6358fbae2f04e561a7d50'
+      address: "0x2c7974bade5adac329f6358fbae2f04e561a7d50"
       abi: Factory
       startBlock: 17066083
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
       language: wasm/assemblyscript
-      file: ./src/mappings/factory.ts
+      file: Factory/Factory.wasm
       entities:
         - Artist
-
       abis:
         - name: Factory
-          file: ./abis/factory.json
-    
-     
+          file: Factory/abis/factory.json
       eventHandlers:
         - event: ArtistCreated(address,string,uint256)
           handler: handleNewArtist
@@ -37,14 +35,14 @@ templates:
       kind: ethereum/events
       apiVersion: 0.0.5
       language: wasm/assemblyscript
-      file: ./src/mappings/core.ts
+      file: templates/Artist/Artist.wasm
       entities:
         - Artist
       abis:
         - name: Artist
-          file: ./abis/artist.json
+          file: Artist/abis/artist.json
         - name: Factory
-          file: ./abis/factory.json
+          file: Artist/abis/factory.json
       eventHandlers:
         - event: onURIChanged(uint256,string)
           handler: handleURIChange
@@ -58,4 +56,3 @@ templates:
           handler: handleURIChanged
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handeTransfer
-       
