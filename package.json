@@ -6,7 +6,7 @@
     "create-local": "graph create shahzeb8285/nftshellfactory --node http://127.0.0.1:8020",
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy shahzeb8285/nftyardcolletoral --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "deploy": "graph deploy shahzeb8285/fantunez --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
     "deploy-local": "graph deploy shahzeb8285/nftshellfactory --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
   },
   "devDependencies": {

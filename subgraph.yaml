@@ -1,16 +1,16 @@
 specVersion: 0.0.4
-description: PancakeSwap is a decentralized protocol for automated token exchange on Binance Smart Chain.
+description: Fantunes is a decentralized protocol
 repository: https://github.com/pancakeswap/pancakeswap-v2-subgraph
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: Factory
-    network: chapel
+    network: matic
     source:
-      address: '0x2c7974bade5adac329f6358fbae2f04e561a7d50'
+      address: '0x4782EDa23Ebf5aCC02d3c6a626660c2e48FB94da'
       abi: Factory
-      startBlock: 17066083
+      startBlock: 27646355
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -30,7 +30,7 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: Artist
-    network: chapel
+    network: matic
     source:
       abi: Artist
     mapping:
